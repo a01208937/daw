@@ -96,3 +96,18 @@ function inverso() {
     alert(output);
 }
 
+function fracciones() {
+    
+    class fraccion {
+        constructor(n1, n2) {
+            this.n1 = n1;
+            this.n2 = n2;
+        }
+    }
+    
+    var n1 = prompt("ingresa el número 1");
+    var n2 = prompt("ingresa el número 2");
+    var f = fraccion(n1, n2);
+    
+    alert("n1: " + f.n1);
+}
