@@ -1,7 +1,13 @@
 function tablas() {
     var input = prompt("introduce un número", "1");
+    input = parseInt(input);
     
-    var total = input + 1;
+    var output = "table: <br>";
     
-    alert(total);
+    for(i=0; i< input; i++) {
+        output += "number: " + i + ", square: " + i*i + ", cube: " + i*i*i + "<br>";
+    }
+    
+    document.write(output);
 }
+
