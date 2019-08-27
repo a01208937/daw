@@ -96,18 +96,28 @@ function inverso() {
     alert(output);
 }
 
-function fracciones() {
+function figura() {
+    var h = prompt("Height");
+    var w = prompt("Width");
+    h = parseInt(h);
+    w = parseInt(w);
+    var rect = new Rectangle(h, v);
+    alert(rect.area);
+}
+
+class Rectangle {
     
-    class fraccion {
-        constructor(n1, n2) {
-            this.n1 = n1;
-            this.n2 = n2;
-        }
+    constructor(height, width) {
+    this.height = height;
+    this.width = width;
     }
     
-    var n1 = prompt("ingresa el número 1");
-    var n2 = prompt("ingresa el número 2");
-    var f = fraccion(n1, n2);
+    get area() {
+        return this.calcular_area();
+    }
     
-    alert("n1: " + f.n1);
+    calcular_area() {
+        return this.height*this.width;
+    }
 }
+
