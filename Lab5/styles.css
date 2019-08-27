@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'bombing';
+	src: url('Bombing.ttf');
+}
+
+h1 {
+	font-size: 6em;
+	color: #4ca832;
+}
+
+#content {
+	font-family: bombing;
+	text-align: center;
+}
