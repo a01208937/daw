@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="tienda.css">
+        <title>Lab5-tienda</title>
+    </head>
+    <body>
+        <div class="cards_content">
+            <div class="card">
+                <img src="img/foundation.jpg" width="100%">
+                <div class="container">
+                    <p>
+                        <h2>Fundación</h2>
+                        Autor: Isaac Asimov <br>
+                        Género: Ciencia Ficción <br>
+                        No. páginas: 264 <br>
+                        Precio: $250
+                    </p>
+                    <div class="cuantity">
+                        <p class="cuantity_text" id="cant_fundacion">Cantidad: 0</p>
+                        <button class="cuantity_button" id="menos_fundacion"><strong>-</strong></button>
+                        <button class="cuantity_button" id="mas_fundacion"><strong>+</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/martian.jpg" width="100%">
+                <div class="container">
+                    <p>
+                        <h2>El Marciano</h2>
+                        Autor: Andy Weir <br>
+                        Género: Ciencia Ficción <br>
+                        No. páginas: 310 <br>
+                        Precio: $310
+                    </p>
+                    <div class="cuantity">
+                        <p class="cuantity_text" id="cant_marciano">Cantidad: 0</p>
+                        <button class="cuantity_button" id="menos_marciano"><strong>-</strong></button>
+                        <button class="cuantity_button" id="mas_marciano"><strong>+</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/it.jpg" width="100%">
+                <div class="container">
+                    <p>
+                        <h2>Eso</h2>
+                        Autor: Stephen King<br>
+                        Género: Terror, Fantasía<br>
+                        No. páginas: 1150 <br>
+                        Precio: $680
+                    </p>
+                    <div class="cuantity">
+                        <p class="cuantity_text" id="cant_it">Cantidad: 0</p>
+                        <button class="cuantity_button" id="menos_it"><strong>-</strong></button>
+                        <button class="cuantity_button" id="mas_it"><strong>+</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="container">
+                    <h2 id="carrito_titulo">TU COMPRA:</h2>
+                    <h4 id="cantidad_elementos">Elementos en el carrito: 0</h4>
+                    <h4 id="sub_total">Subtotal: $0</h4>
+                    <h4 id="iva">IVA: $0</h4>
+                    <br><br>
+                    <h3 id="total">TOTAL: $0</h3>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="fun_tienda.js"></script>
+    </body>
+</html>

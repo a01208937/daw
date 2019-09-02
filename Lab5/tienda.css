@@ -1,0 +1,45 @@
+.cards_content {
+    display: flex;
+    align-content: flex-start;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-right: 2.5%;
+    width: 20%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.cuantity {
+    display: flex;
+    align-content: flex-start;
+}
+
+.cuantity_text {
+    margin-right: 15px;
+}
+
+.cuantity_button {
+    width: 40px;
+    background-color: #e7e7e7; 
+    color: black;
+    border: 2px solid #e7e7e7;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.cuantity_button:hover {
+    background-color: #ffffff; 
+}

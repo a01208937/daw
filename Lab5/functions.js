@@ -5,7 +5,7 @@ function send() {
 	if (pass == "" || confirm_pass == "") {
 		alert("Por favor introduzca los datos solicitados");
 	} else if (pass == confirm_pass) {
-		alert("Contraseña verificada correctamente");
+		location.href = 'tienda.html';
 	} else {
 		alert("Las contraseñas no coinciden");
 	}
