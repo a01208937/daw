@@ -9,14 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Nombre de usuario inválido";
         alert($error);
         return;
-    }
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ($_POST["pass"] != $valid_pass) {
+    } else if ($_POST["pass"] != $valid_pass) {
         $error = "Contraseña inválida";
         alert($error);
         return;
+    } else {
+        header("location: http://localhost/a01208937/form.php");
     }
 }
 

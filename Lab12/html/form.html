@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Lab 12</title>
+        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    </head>
+
+    <body>
+        <div class="card">
+            <div class="card_container">
+                    <form action="img_upload.php" enctype="multipart/form-data" method="POST">
+                            <h1><strong>Seleccionar imagen</strong></h1>
+                            <br>
+                            <input type="file" name="imgToUpload">
+                        <br><br>
+                        <input type="submit" value="subir imagen" name="submit_img">
+                    </form>
+
+                    <form action="preguntas.php" method="POST">
+                        <input type="submit" value="Preguntas">
+                    </form>
+            </div>
+        </div>
+        <script src="functions/browser/form.js"></script>
+    </body>
+</html>
