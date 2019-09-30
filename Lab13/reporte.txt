@@ -1,0 +1,2 @@
+Integridad referencial: es la propiedad de una base de datos que restringe o limita la falta de sincronización entre tablas.
+esto se logra a través de constraints.
