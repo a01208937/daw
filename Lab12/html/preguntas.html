@@ -11,16 +11,28 @@
             <h1>PREGUNTAS</h1>
             <hr>
             <h2>¿Por qué es importante hacer un session_unset() y luego un session_destroy()?</h2>
-            <h4>Respuesta</h4>
+            <h4>Porque al hacer un session_unset previenes que siga actuando el ID de la sesión al momento de eliminar los datos de 
+                la sesion con un session_destroy.
+            </h4>
             <hr>
             <h2>¿Cuál es la diferencia entre una variable de sesión y una cookie?</h2>
-            <h4>Respuesta</h4>
+            <h4>Una cookie se almacena en el lado del cliente y la sesión en el lado del servidor. Ambas sirven para guardar información
+                pero una sesión es eliminada al cerrar el navegador y una cookie puede durar un tiempo definido sin importar si fue cerrado
+                el navegador.
+            </h4>
             <hr>
-            <h2>¿Qué técnicas se utilizan en sitios como facebook para que el usuario no sobreescriba sus fotos en el sistema de archivos cuando sube una foto con el mismo nombre?</h2>
-            <h4>Respuesta</h4>
+            <h2>¿Qué técnicas se utilizan en sitios como facebook para que el usuario no sobreescriba sus fotos en el sistema de archivos 
+                cuando sube una foto con el mismo nombre?</h2>
+            <h4>Utilizan técnicas similares al manejo de colisiones de las tablas de dispersión (puede ser ir agregando números en el nombre o
+                algúna técnica similar).
+            </h4>
             <hr>
             <h2>¿Qué es CSRF y cómo puede prevenirse?</h2>
-            <h4>Respuesta</h4>
+            <h4>Es un tipo de ataque en el que el atacante utiliza la sesión de otro ordenador/usuario para hacer peticiones http, 
+                sin que la victima se entere.<br><br>
+                Esto se puede evitar desactivando el recordar usuarios y contraseñas, cerrar la sesión de los sitios a los que accedamos y utilizar
+                diferentes navegadores (para información importante y general).
+            </h4>
         </div>
     </body>
 </html>

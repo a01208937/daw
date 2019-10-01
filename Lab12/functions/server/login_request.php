@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $valid_username = "Zeika";
 $valid_pass = "Sushi";
 $error = "";
@@ -14,7 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         alert($error);
         return;
     } else {
-        header("location: http://localhost/a01208937/form.php");
+        if (isset($_POST['username'])) {
+            $_SESSION['name'] = $_POST['username'];
+            header("location: http://localhost/a01208937/form.php");
+        }
     }
 }
 
