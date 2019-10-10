@@ -21,10 +21,18 @@ function closeDb($mysql) {
     mysqli_close($mysql);
 }
 
+function getSongsByArtist($artist) {
+    $conn = connectDb();
+    $sql = "SELECT name FROM Songs WHERE artist = " . $artist;
+    $result = mysqli_query($conn, $sql);
+    closeDb($conn);
+    return $result;
+}
+
 function insertSong($name, $composer) {
     $conn = conectDB();
 
-    $sql = "INSERT INTO Song (name, composer) VALUES (\"" . $name . "\",\"" . $composer . "\");";
+    $sql = "INSERT INTO Songs (name, composer) VALUES (\"" . $name . "\",\"" . $composer . "\");";
     
     if (mysqli_query($conn, $sql)) {
         echo "New song added succesfully!";

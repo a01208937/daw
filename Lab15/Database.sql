@@ -1,0 +1,5 @@
+CREATE TABLE Songs(
+    ID INT IDENTITY PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    composer VARCHAR(30) NOT NULL
+);

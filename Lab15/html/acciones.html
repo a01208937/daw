@@ -13,7 +13,24 @@
             <div class="card" style="width: 50%; align-self: center; margin: 5% auto; padding: 3% 1%;">
                 <h1>Lab 15: Acciones</h1>
                 <br><br>
-                
+                <form method="POST">
+                    <div class="form-group">
+                      <label for="composerForm">Search by composer</label>
+                      <input type="text" class="form-control" id="composerForm" 
+                        name="artist_txt" aria-describedby="emailHelp" placeholder="Composer Name">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="search">Submit</button>
+                </form>
+                <hr>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="composerForm">Add new song</label>
+                        <input type="text" class="form-control" name="song_txt" placeholder="Song Name">
+                        <br>
+                        <input type="text" class="form-control" name="artist_txt" placeholder="Composer Name">
+                    </div>
+                      <button type="submit" class="btn btn-primary" name="add_song">Submit</button>
+                </form>
             </div>
         </div>
     </body>
