@@ -57,3 +57,58 @@ INSERT INTO Materiales VALUES (1701,'Uranio', 25.00)
 INSERT INTO Materiales VALUES (1702,'Mercurio', 27.00)
 INSERT INTO Materiales VALUES (1703,'Plutonio', 18.00)
 INSERT INTO Materiales VALUES (1704,'Radio', 19.00)
+
+--  Clave y descripción de los materiales que nunca han sido entregados.
+SELECT Clave, Descripcion
+FROM Materiales
+WHERE Clave NOT IN (SELECT Clave FROM Entregan)
+
+/* Razón social de los proveedores que han realizado entregas tanto al proyecto 
+'Vamos México' como al proyecto 'Querétaro Limpio'. */
+SELECT DISTINCT RazonSocial
+FROM Proveedores P, Entregan E, Proyectos Pr
+WHERE P.RFC = E.RFC AND Pr.Numero = E.Numero AND Pr.Denominacion = 'Queretaro Limpio'
+INTERSECT
+SELECT DISTINCT RazonSocial
+FROM Proveedores P, Entregan E, Proyectos Pr
+WHERE P.RFC = E.RFC AND Pr.Numero = E.Numero AND Pr.Denominacion = 'Vamos Mexico'
+
+/* Descripción de los materiales que nunca han sido entregados al proyecto 'CIT Yucatán'. */
+SELECT Descripcion
+FROM Materiales
+WHERE Clave NOT IN (
+	SELECT Clave
+	FROM Entregan E, Proyectos P
+	WHERE P.Denominacion = 'CIT Yucatán' AND P.Numero = E.Numero
+	)
+
+/* Razón social y promedio de cantidad entregada 
+de los proveedores cuyo promedio de cantidad 
+entregada es mayor al promedio de la cantidad entregada 
+por el proveedor con el RFC 'VAGO780901'.*/
+SELECT P.RazonSocial
+FROM Proveedores P, Entregan E
+WHERE P.RFC = E.RFC
+GROUP BY P.RazonSocial
+HAVING AVG(E.Cantidad) > (
+	SELECT AVG(E.Cantidad) 
+	FROM Proveedores AS P, Entregan AS E
+	WHERE P.RFC = E.RFC AND P.RFC = 'VAGO780901'
+)
+
+/*RFC, razón social de los proveedores que participaron en el proyecto 
+'Infonavit Durango' y cuyas cantidades totales entregadas en el 2000 fueron 
+mayores a las cantidades totales entregadas en el 2001.*/
+SET DATEFORMAT dmy
+SELECT Prov.RFC, Prov.RazonSocial
+FROM Entregan E, Proyectos P,Proveedores Prov
+WHERE P.Numero = E.Numero AND Prov.RFC = E.RFC AND Prov.RazonSocial='Infonavit Durango'
+GROUP BY Prov.RFC, Prov.RazonSocial
+  HAVING (SELECT SUM(E.Cantidad)
+  FROM Entregan AS E, Proyectos AS P, Proveedores AS Prov
+  WHERE P.Numero = E.Numero AND Prov.RFC = E.RFC AND (E.Fecha BETWEEN '01/01/2000' AND '31/12/2000')
+)
+  > (SELECT SUM(E.Cantidad)
+  FROM Entregan AS E, Proyectos AS P, Proveedores AS Prov
+  WHERE P.Numero = E.Numero AND Prov.RFC = E.RFC AND (E.Fecha BETWEEN '01/01/2001' AND '31/12/2001')
+)
