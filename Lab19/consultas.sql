@@ -23,3 +23,37 @@ FROM Materiales M, Entregan E
 WHERE M.Clave = E.Clave
 GROUP BY M.Clave, M.Descripcion
 HAVING AVG(E.Cantidad) > 400;
+
+/*Para cada proveedor, indicar su razón social y mostrar la cantidad 
+promedio de cada material entregado, detallando la clave y descripción 
+del material, excluyendo aquellos proveedores para los que la cantidad 
+promedio sea menor a 500.*/
+SELECT P.RazonSocial, M.Clave, M.Descripcion, AVG(E.Cantidad) CANTIDAD
+FROM Proveedores P, Entregan E, Materiales M
+WHERE P.RFC = E.RFC AND M.Clave = E.Clave
+GROUP BY P.RazonSocial, M.Clave, M.Descripcion
+HAVING AVG(E.Cantidad) > 500
+
+/*Mostrar en una solo consulta los mismos datos que 
+en la consulta anterior pero para dos grupos de proveedores: 
+aquellos para los que la cantidad promedio entregada es menor 
+a 370 y aquellos para los que la cantidad promedio entregada 
+sea mayor a 450.*/
+SELECT P.RazonSocial, M.Clave, M.Descripcion, AVG(E.Cantidad) CANTIDAD
+FROM Proveedores P, Entregan E, Materiales M
+WHERE P.RFC = E.RFC AND M.Clave = E.Clave
+GROUP BY P.RazonSocial, M.Clave, M.Descripcion
+HAVING AVG(E.Cantidad) < 370
+UNION
+SELECT P.RazonSocial, M.Clave, M.Descripcion, AVG(E.Cantidad) CANTIDAD
+FROM Proveedores P, Entregan E, Materiales M
+WHERE P.RFC = E.RFC AND M.Clave = E.Clave
+GROUP BY P.RazonSocial, M.Clave, M.Descripcion
+HAVING AVG(E.Cantidad) > 450
+
+--inserta cinco nuevos materiales.
+INSERT INTO Materiales VALUES (1700,'Uranio', 25.00)
+INSERT INTO Materiales VALUES (1701,'Uranio', 25.00)
+INSERT INTO Materiales VALUES (1702,'Mercurio', 27.00)
+INSERT INTO Materiales VALUES (1703,'Plutonio', 18.00)
+INSERT INTO Materiales VALUES (1704,'Radio', 19.00)
