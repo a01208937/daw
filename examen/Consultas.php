@@ -21,7 +21,7 @@ if ($result = mysqli_query($conn, $sql)) {
 // POSTS
 if (isset($_POST['todos_registros'])) {
     // ir a todos los registros
-    header("Location: http://mysql1008.mochahost.com/todos_registros.php");
+    header("Location: http://a01208937.dawbd.org/todos_registros.php");
 }
 
 if (isset($_POST['zombiesPorEstado'])) {
