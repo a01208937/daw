@@ -1,0 +1,25 @@
+Caso 1 (insert_clients.sql)
+¿Que pasa cuando deseas realizar esta consulta? 
+se muestran los registros.
+
+Caso 2 (insert_clients_no_commit.sql)
+¿Qué pasa cuando desead realizar esta consulta? 
+Primero se muestran los registros nuevos, y luego los anteriores.
+
+Explica por qué ocurre dicho evento.
+No se completó la transacción porque no se realizó el commit, por lo tanto no se registraron.
+
+¿Qué ocurrió y por qué?
+Lo mismo, ya que PostgreSQL hace rollback implícitamente.
+
+Caso 3 (inser_clientes_error.sql)
+
+¿PARA QUÉ SIRVE EL COMANDO @@ERROR REVISA LA AYUDA EN LÍNEA?
+Para encontrar errores durante la ejecución del query.
+
+¿QUÉ HACE LA TRANSACCIÓN?
+Intenta insertar nuevos clientes, pero ocasiona un error porque existen llaves primarias duplicadas,
+por lo tanto hace rollback
+
+¿HUBO ALGUNA MODIFICACIÓN EN LA TABLA? EXPLICA QUÉ PASÓ Y POR QUÉ
+No, porque hubo error.
