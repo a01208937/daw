@@ -1,0 +1,17 @@
+CREATE TABLE ClientesBanco(
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL,
+    Saldo INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE TiposMovimiento(
+    Clave INT AUTO_INCREMENT PRIMARY KEY,
+    Descripcion VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Movimientos(
+    Id_Cliente INT REFERENCES ClientesBanco(Id) ON DELETE SET NULL,
+    ClaveMovimiento INT REFERENCES TiposMovimiento(Clave) ON DELETE SET NULL,
+    Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Monto INT NOT NULL
+);
