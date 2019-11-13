@@ -1,0 +1,18 @@
+/*------------------- NATIVE -------------------------*/
+body {
+    background-color: rgb(66, 186, 255);
+}
+
+/*------------------- BY ID -------------------------*/
+#main_container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+/*------------------- BY CLASS -------------------------*/
+.login_g {
+    margin-left: auto;
+    margin-right: auto;
+}
