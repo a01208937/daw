@@ -4,3 +4,6 @@
 	-Identifica el límite final de un grupo de sentencias de transacciones
 ¿Explica que recibe como parámetro este Procedimiento y qué tabla modifica?
 	-Recibe columnas de una tabla y modifica la tabla materiales.
+Explica en tu reporte qué recibe como parámetro este procedimiento y qué hace 
+	(EXECUTE queryMaterial 'Lad',20).
+	-Busca los materiales que contengan la cadena ‘Lad’ y cuyo costo sea mayor a 20
