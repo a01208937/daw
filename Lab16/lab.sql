@@ -88,3 +88,34 @@ WHERE [Numero] Between 5000 AND 5010 AND  RFC
 NOT IN ( SELECT [RFC]
 FROM [Proveedores]
 WHERE RazonSocial NOT LIKE 'La%' AND [Entregan].[RFC] = [Proveedores].[RFC] );
+
+SELECT Descripcion
+FROM Materiales
+WHERE clave = ANY (SELECT clave FROM Entregan WHERE Cantidad > 10);
+
+SELECT TOP 2 * FROM Proyectos
+
+SELECT TOP Numero FROM Proyectos
+
+
+ALTER TABLE materiales ADD PorcentajeImpuesto NUMERIC(6,2);
+
+UPDATE materiales SET PorcentajeImpuesto = 2*clave/1000;
+
+SELECT E.Clave, E.Cantidad*(M.Costo*(PorcentajeImpuesto/100)+1) as "Total"
+FROM Materiales M, Entregan E
+WHERE M.Clave=E.Clave
+
+CREATE VIEW totalEntregado(Clave,Total) AS
+SELECT E.Clave, E.Cantidad*(M.Costo*(PorcentajeImpuesto/100)+1)
+FROM Materiales M, Entregan E
+WHERE M.Clave=E.Clave;
+
+select * from  totalEntregado
+
+CREATE VIEW materialesMexico(Clave,Descripcion) AS
+SELECT E.Clave, M.Descripcion
+FROM Materiales as M, Entregan as E, Proyectos as P
+WHERE M.Clave=E.Clave AND P.Denominacion='Mexico sin ti no estamos completos'
+
+select * from materialesMexico
