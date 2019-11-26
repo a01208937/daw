@@ -29,3 +29,12 @@ EXCEPT
 (select * from entregan where clave=1000)
 
 select * from entregan,materiales
+
+select * from Entregan
+select * from materiales
+
+--set dateformat dmy
+
+select Descripcion
+from Materiales m, Entregan e
+where m.Clave = e.Clave and e.Fecha between '01-01-2000' and '31-12-2000'
