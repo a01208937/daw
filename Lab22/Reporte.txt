@@ -1,0 +1,6 @@
+¿Qué hace el primer bloque del código (bloque del IF)?
+	-Verifica que no exista el stored procedure, y si ya existe, lo elimina.
+¿Para qué sirve la instrucción GO?
+	-Identifica el límite final de un grupo de sentencias de transacciones
+¿Explica que recibe como parámetro este Procedimiento y qué tabla modifica?
+	-Recibe columnas de una tabla y modifica la tabla materiales.
