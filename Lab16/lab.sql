@@ -33,7 +33,7 @@ select * from entregan,materiales
 select * from Entregan
 select * from materiales
 
---set dateformat dmy
+set dateformat dmy
 
 select Descripcion
 from Materiales m, Entregan e
