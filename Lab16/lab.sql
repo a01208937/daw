@@ -38,3 +38,53 @@ set dateformat dmy
 select Descripcion
 from Materiales m, Entregan e
 where m.Clave = e.Clave and e.Fecha between '01-01-2000' and '31-12-2000'
+
+SELECT * FROM materiales where Descripcion LIKE 'Si%'
+
+SELECT * FROM materiales where Descripcion LIKE 'Si'
+
+select distinct Descripcion
+from Materiales m, Entregan e
+where m.Clave = e.Clave and e.Fecha between '01-01-2000' and '31-12-2000'
+
+select distinct e.Numero, p.Denominacion, e.Fecha
+from Entregan e, Proyectos p
+where e.Numero=  p.Numero
+order by e.Fecha desc
+
+-- declares y sets
+DECLARE @foo varchar(40);
+DECLARE @bar varchar(40);
+SET @foo = '¿Que resultado';
+SET @bar = ' ¿¿¿??? '
+SET @foo += ' obtienes?';
+PRINT @foo + @bar;
+
+SELECT RFC FROM Entregan WHERE RFC LIKE '[A-D]%';
+SELECT RFC FROM Entregan WHERE RFC LIKE '[^A]%';
+SELECT Numero FROM Entregan WHERE Numero LIKE '___6';
+
+SELECT Clave,RFC,Numero,Fecha,Cantidad
+FROM Entregan
+WHERE Fecha Between '01-01-2000' and '01-02-2000';
+
+SELECT RFC,Cantidad, Fecha,Numero
+FROM [Entregan]
+WHERE [Numero] Between 5000 and 5010 AND
+Exists ( SELECT [RFC]
+FROM [Proveedores]
+WHERE RazonSocial LIKE 'La%' and [Entregan].[RFC] = [Proveedores].[RFC] );
+
+SELECT RFC,Cantidad, Fecha,Numero
+FROM [Entregan] e
+WHERE [Numero] Between 5000 and 5010 AND  e.RFC
+IN (SELECT [RFC]
+FROM [Proveedores]
+WHERE RazonSocial LIKE 'La%' );
+
+SELECT RFC,Cantidad, Fecha,Numero
+FROM [Entregan]
+WHERE [Numero] Between 5000 AND 5010 AND  RFC
+NOT IN ( SELECT [RFC]
+FROM [Proveedores]
+WHERE RazonSocial NOT LIKE 'La%' AND [Entregan].[RFC] = [Proveedores].[RFC] );
