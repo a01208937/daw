@@ -119,3 +119,39 @@ FROM Materiales as M, Entregan as E, Proyectos as P
 WHERE M.Clave=E.Clave AND P.Denominacion='Mexico sin ti no estamos completos'
 
 select * from materialesMexico
+
+CREATE VIEW materialesAcme(Clave,Descripcion) AS
+SELECT E.Clave, M.Descripcion
+FROM Materiales as M, Entregan as E, Proveedores as P
+WHERE M.Clave=E.Clave AND P.RFC=E.RFC AND P.RazonSocial='Acme tools'
+
+
+select * from materialesAcme
+
+
+set dateformat dmy
+
+CREATE VIEW menor2000(RFC) AS
+SELECT E.RFC
+FROM Entregan as E
+WHERE E.Cantidad>=300 AND (Fecha Between '01-JAN-2000' AND '31-DEC-2000')
+
+
+select * from menor2000
+
+
+CREATE VIEW total2000(Clave, total) AS
+SELECT E.Clave, SUM(Cantidad) as 'Total'
+FROM Entregan as E
+WHERE (Fecha Between '01-JAN-2000' AND '31-DEC-2000')
+GROUP BY E.Clave
+
+select * from total2000
+
+
+CREATE VIEW top2001(Clave,Cantidad) AS
+SELECT TOP 1 E.Clave, SUM(Cantidad) as 'Total'
+FROM Entregan as E
+WHERE (Fecha Between '01-JAN-2001' AND '31-DEC-2001')
+GROUP BY E.Clave
+ORDER BY Total DESC
