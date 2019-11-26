@@ -7,3 +7,28 @@
 Explica en tu reporte qué recibe como parámetro este procedimiento y qué hace 
 	(EXECUTE queryMaterial 'Lad',20).
 	-Busca los materiales que contengan la cadena ‘Lad’ y cuyo costo sea mayor a 20
+*Stored procedures libres en el proyecto (funciones crear membresía [PostgreSQL])*
+
+¿Qué ventajas tienen el utilizar Stored Procedures en una aplicación cliente-servidor?
+	-Simplifica la sintaxis al utilizar sql en archivos php
+	-Aumenta la velocidad de peticiones
+	-Simplifica la lógica de gestión
+	-Asegura integridad y consistencia de datos
+
+¿Qué ventajas tiene utilizar SP en un proyecto?
+	-Encapsula procesos complejos, volviéndolos más sencillos de realizar
+	-Evita que los datos tengan problemas de corrupción
+	-Permite validar la integridad de los datos
+
+SP (de proyecto en PostgreSQL)
+CREATE OR REPLACE FUNCTION get_services_list()
+RETURNS TABLE (
+  nom VARCHAR(255)
+)
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT nombre as nom
+    FROM servicio;
+END;
+$$ LANGUAGE 'plpgsql';
