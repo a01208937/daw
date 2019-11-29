@@ -1,0 +1,13 @@
+¿Por qué es importante la accesibilidad?
+-Porque existe una gran parte de usuarios potenciales que se pueden ver afectados por falta de accesibilidad.
+
+¿Cuáles son los lineamientos de accesibilidad que consideras más importantes? ¿Por qué?
+-Contraste de colores porque incluso para usuarios sin dificultades, hace que sea más fácil de utilizar la página.
+-Labels y textos alternativos, porque para usuarios que tienen discapacidad visual es el recurso que más utilizan.
+
+Describe 3 cambios que harás en tu proyecto para hacerlo más accesible.
+-Agregaré labels a los formularios
+-Revisaré que se utilicen fuentes que sean altamente legibles
+-Corregiré cuestiones de contraste de colores para asegurar legibilidad.
+
+(Cambios solicitados del laboratorio implementados en el proyecto)
